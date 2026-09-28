@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TruthAI</title>
+  <meta name="description" content="Truth-first multi-provider AI assistant with web-grounded answers." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div>
+          <div class="brand-name">TruthAI</div>
+          <div class="brand-sub">Evidence first</div>
+        </div>
+      </div>
+
+      <button id="newChat" class="new-chat">＋ New chat</button>
+
+      <div class="side-section">
+        <div class="side-label">AI Provider</div>
+        <select id="provider">
+          <option value="openai">OpenAI</option>
+          <option value="gemini">Gemini</option>
+        </select>
+      </div>
+
+      <label class="toggle-row">
+        <span>
+          <strong>Web verification</strong>
+          <small>Search current info & show sources</small>
+        </span>
+        <input id="webToggle" type="checkbox" checked />
+      </label>
+
+      <div class="side-info">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Checking API keys…</span>
+      </div>
+
+      <div class="side-footer">
+        <span>TruthAI starter</span>
+        <span>Keys stay server-side</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="mobileMenu" class="icon-btn" aria-label="Menu">☰</button>
+        <div class="top-title">
+          <strong>TruthAI</strong>
+          <span>Ask anything. Verify what matters.</span>
+        </div>
+        <button id="clearHistory" class="icon-btn" title="Clear chat">⌫</button>
+      </header>
+
+      <section id="chat" class="chat">
+        <div class="welcome">
+          <div class="welcome-logo">T</div>
+          <h1>What do you want to know?</h1>
+          <p>Current facts are checked against the web when verification is on. Sources appear below grounded answers.</p>
+          <div class="chips">
+            <button class="chip">Germany shoe designer jobs</button>
+            <button class="chip">Explain this in Roman Urdu</button>
+            <button class="chip">Compare two technologies</button>
+            <button class="chip">Research a topic deeply</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="composer-wrap">
+        <div id="filePreview" class="file-preview hidden"></div>
+        <div class="composer">
+          <button id="attachBtn" class="attach" title="Attach text file">＋</button>
+          <input id="fileInput" type="file" hidden accept=".txt,.md,.json,.csv,.js,.ts,.html,.css,.py,.java,.cpp,.c,.xml" />
+          <textarea id="prompt" rows="1" placeholder="Message TruthAI…"></textarea>
+          <button id="sendBtn" class="send" aria-label="Send">➤</button>
+        </div>
+        <div class="composer-note">AI can make mistakes. For important matters, check the cited sources.</div>
+      </div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
